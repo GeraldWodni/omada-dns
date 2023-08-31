@@ -1,0 +1,14 @@
+{
+  "name": "omada-dns",
+  "version": "0.1.0",
+  "description": "crawls omada controller for dhcp hosts and adds serves them upon dns requests",
+  "main": "omada-dns.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gerald Wodni <gerald.wodni@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dns2": "^2.1.0"
+  }
+}
