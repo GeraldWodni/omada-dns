@@ -28,8 +28,11 @@ jobs:
     - name: Build Docker image
       run: docker build -t omada-dns:${{ env.PACKAGE_VERSION }} -t omada-dns:latest .
       
-    - name: Push Docker image
-      run: docker push omada-dns:${{ env.PACKAGE_VERSION }} omada-dns:latest
+    - name: Push Docker versioned image
+      run: docker push omada-dns:${{ env.PACKAGE_VERSION }}
+
+    - name: Push Docker latest image
+      run: docker push omada-dns:latest
 
     - name: Cleanup
       run: docker logout
