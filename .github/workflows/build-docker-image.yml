@@ -13,11 +13,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Extract version from package.json
-      uses: sergeysova/jq-action@v2
-      id: version
-      with:
-        cmd: 'jq .version package.json -r'
+    - name: read Package.json
+      uses: rexdefuror/read-package-json@v1.0.5
+
+    - run: echo "name - ${{ env.PACKAGE_NAME }}"
+    - run: echo "version - ${{ env.PACKAGE_VERSION }}"
 
     - name: Login to Docker Hub
       uses: docker/login-action@v1
@@ -26,10 +26,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -t omada-dns:${{ steps.package-version.outputs.value }} -t omada-dns:latest .
+      run: docker build -t omada-dns:${{ env.PACKAGE_VERSION }} -t omada-dns:latest .
       
     - name: Push Docker image
-      run: docker push omada-dns:${{ steps.package-version.outputs.value }} omada-dns:latest
+      run: docker push omada-dns:${{ env.PACKAGE_VERSION }} omada-dns:latest
 
     - name: Cleanup
       run: docker logout
