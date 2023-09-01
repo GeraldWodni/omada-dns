@@ -1,3 +1,8 @@
+/* Omada API
+ * minimalistic API with error detection and automatic login
+ * (c)copyright 2023 by Gerald Wodni <gerald.wodni@gmail.com>
+ */
+
 const https = require("https");
 const path = require("path");
 const util = require("util");
