@@ -5,6 +5,9 @@
   "main": "omada-dns.js",
   "author": "Gerald Wodni <gerald.wodni@gmail.com>",
   "license": "MIT",
+  "scripts": {
+      "start": "node omada-dns.js"
+  },
   "dependencies": {
     "dns2": "^2.1.0"
   }
